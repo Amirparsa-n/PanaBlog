@@ -3,6 +3,8 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './styles/index.css'
 
+import { BrowserRouter } from 'react-router-dom'
+
 // graphQl
 import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
 
@@ -19,7 +21,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ThemeProvider>
     </ApolloProvider>
   </React.StrictMode>,

@@ -10,6 +10,11 @@ const theme = createTheme({
         fontWeightBold: 700,
         fontWeightHeavy: 800,
         fontWeightFat: 900,
+    },
+    palette: {
+        primary: {
+            main: "#2065BB"
+        }
     }
 });
 

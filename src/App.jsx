@@ -1,24 +1,27 @@
 import React from 'react'
 
+import { Route, Routes } from 'react-router-dom';
+
+{console.log("%c\n    ⣀⣠⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣤⣀⡀\n⠀⣰⣾⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣦⡀\n⢸⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡀\n⣿⣿⣿⣿⣿⠿⠿⠿⠿⠿⠿⠿⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇\n⣿⣿⣿⣿⣷⣄⣀⣀⣀⣀⣀⣀⣀⣠⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⡇\n⣿⣿⣿⣿⣿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⠿⢿⣿⣿⣿⣿⡇\n⣿⣿⣿⣿⣷⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣀⣨⣿⣿⣿⣿⡇\n⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠃\n⠘⢿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠏\n⠀⠀⠙⠻⠿⠿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠿⠿⠛⠁\n\n⠀⠀⠀⠀⠀⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⣿⠇\n\n\n⠀⠀⠀⠀⠀   Amirparsa Naghibi\n", "font-family:monospace;color:#2065BB;font-size:16px;")}
+
+// graphQL
 import {gql, useQuery} from '@apollo/client'
-import { Typography } from '@mui/material';
- 
-const QUERY = gql`
-  query {
-    authors {
-      name,
-    }
-  }
-`;
+
+// Component
+import Navbar from './components/layout/Navbar';
+import HomePage from './page/HomePage';
+
+
 
 function App() {
 
-  const {loading, data} = useQuery(QUERY)
-  console.log(data);
   return (
-    <div>
-      <Typography component={"h1"}>شروع پروژه وبلاگ امیرپارسا نقیبی</Typography>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path='/' element={<HomePage />} />
+      </Routes>
+    </>
   )
 }
 
