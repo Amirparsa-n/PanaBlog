@@ -82,7 +82,7 @@ function Navbar(props) {
                     <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap:{ md: '48px', sm:'18px' }, margin: 'auto' }}>
                         {navItems.map((item) => (
                         <Box key={item.id} sx={{ color: '#565656', cursor: 'pointer', ":hover":{color: '#2065BB'} }}>
-                            <Typography component={'div'}>
+                            <Typography component={'div'} fontWeight={'bold'}>
                                 {item.title}
                             </Typography>
                         </Box>
