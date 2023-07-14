@@ -19,6 +19,7 @@ import { Link } from 'react-router-dom';
 
 // image
 import logo from '../../assets/images/logo.png';
+import menu from '../../assets/images/menu.svg'
 
 const drawerWidth = 240;
 
@@ -36,7 +37,7 @@ function Navbar(props) {
 
   const handleDrawerToggle = () => {
     setMobileOpen((prevState) => !prevState);
-  };
+};
 
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
@@ -55,19 +56,20 @@ function Navbar(props) {
   const container = window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center'}}>
+    <Box sx={{mb: '80px'}}>
       <CssBaseline />
-      <AppBar component="nav" style={{backgroundColor: '#e4ecfc', boxShadow: 'none', }}>
+      <AppBar component="nav" style={{backgroundColor: '#e4ecfc', boxShadow: 'none'}}>
         <Container maxWidth="xl">
             <Box>
                 <Toolbar sx={{ display: 'flex', alignItems: 'center', justifyContent:{xs: 'space-between', sm:'start'}, flexDirection: {xs: 'row-reverse', sm:'row'}}}>
-                    <IconButton
+                    
+                  <IconButton
                         aria-label="open drawer"
                         edge="start"
                         onClick={handleDrawerToggle}
-                        sx={{ display: { sm: 'none' } }}
+                        sx={{ display: { sm: 'none' }, p:0, width: '40px' }}
                     >
-                        <MenuIcon color='primary' />
+                        <img src={menu} alt="" width={"28px"}/>
                     </IconButton>
 
                     <Link to={"/"} >
@@ -82,7 +84,7 @@ function Navbar(props) {
                     <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap:{ md: '48px', sm:'18px' }, margin: 'auto' }}>
                         {navItems.map((item) => (
                         <Box key={item.id} sx={{ color: '#565656', cursor: 'pointer', ":hover":{color: '#2065BB'} }}>
-                            <Typography component={'div'} fontWeight={'bold'}>
+                            <Typography component={'div'}>
                                 {item.title}
                             </Typography>
                         </Box>

@@ -6,3 +6,7 @@ body {
 a {
     text-decoration: none;
 }
+
+.css-vtpg4b-MuiToolbar-root {
+    padding: 0 !important;
+}
