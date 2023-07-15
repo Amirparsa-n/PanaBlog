@@ -40,9 +40,7 @@ const HeaderBanner = () => {
 
 
     if (loading) return (
-        <Container maxWidth={'xl'}>
-            <HeaderBannerSkeleton />
-        </Container>
+        <HeaderBannerSkeleton />
     )
 
     if (error) return <h3>error</h3>
