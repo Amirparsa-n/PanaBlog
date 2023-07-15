@@ -8,7 +8,7 @@ import {Skeleton} from '@mui/material';
 const HeaderBannerSkeleton = () => {
     return (
         <>
-        <Grid container display={{xs: 'none', sm: 'flex'}} spacing={3} height={'600px'} marginTop={{xs: 4, md: 12}}>
+        <Grid container display={{xs: 'none', sm: 'flex'}} spacing={3} height={'624px'} marginTop={{xs: 4, md: 12}}>
             <Grid item xs={12} md={5}>
                 <Box component={'div'} height={'600px'} sx={{backgroundColor: '#bfbfbf' ,borderRadius: '20px', position: 'relative'}}>
                     <Stack flexDirection={'column'} alignItems={'center'} columnGap={4} px={2}>

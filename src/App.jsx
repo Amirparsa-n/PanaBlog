@@ -21,6 +21,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
       </Routes>
+      <div style={{height: '2000px'}}></div>
     </>
   )
 }

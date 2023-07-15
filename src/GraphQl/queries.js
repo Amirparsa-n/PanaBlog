@@ -1,6 +1,18 @@
 import { gql } from "@apollo/client";
 
-const GET_ALL_POSTS = gql`
+const GET_POSTS_BANNER = gql`
+    query Posts {
+    posts(skip: 0, last: 100, orderBy: publishedAt_DESC) {
+        title
+        slug
+        coverPhoto {
+            url
+        }
+    }
+    }
+`;
+
+const GET_HOT_POSTS = gql`
     query Posts {
     posts(skip: 0, last: 100, orderBy: publishedAt_DESC) {
         title
@@ -9,19 +21,13 @@ const GET_ALL_POSTS = gql`
         coverPhoto {
         url
         }
-        createdAt
-        authorPost {
-        ... on Author {
-            name
-            slug
-            avatar {
-            url
-            }
+        content {
+        html
         }
-        }
+        datePublished
     }
     }
 `;
 
 
-export {GET_ALL_POSTS}
+export {GET_POSTS_BANNER, GET_HOT_POSTS}
