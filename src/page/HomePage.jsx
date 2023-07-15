@@ -6,6 +6,7 @@ import { Container } from '@mui/material';
 // component
 import HeaderBanner from '../components/HeaderBanner';
 import HotPosts from '../components/HotPosts';
+import NewPosts from '../components/NewPosts';
 
 const HomePage = () => {
 
@@ -14,6 +15,8 @@ const HomePage = () => {
             <HeaderBanner />
 
             <HotPosts />
+
+            <NewPosts />
         </Container>
     );
 };

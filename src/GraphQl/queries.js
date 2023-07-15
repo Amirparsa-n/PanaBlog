@@ -29,5 +29,28 @@ const GET_HOT_POSTS = gql`
     }
 `;
 
+const GET_ALL_POSTS = gql`
+query Posts {
+  posts(skip: 0, first: 10, orderBy: publishedAt_DESC) {
+    title
+    slug
+    id
+    content {
+      html
+    }
+    coverPhoto {
+      url
+    }
+    authorPost {
+      ... on Author {
+        id
+        name
+      }
+    }
+    category
+  }
+}
+`;
 
-export {GET_POSTS_BANNER, GET_HOT_POSTS}
+
+export {GET_POSTS_BANNER, GET_HOT_POSTS, GET_ALL_POSTS}
