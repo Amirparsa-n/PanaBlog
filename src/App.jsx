@@ -10,7 +10,7 @@ import {gql, useQuery} from '@apollo/client'
 // Component
 import Navbar from './components/layout/Navbar';
 import HomePage from './page/HomePage';
-
+import Footer from './components/layout/Footer';
 
 
 function App() {
@@ -21,7 +21,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
       </Routes>
-      <div style={{height: '2000px'}}></div>
+      <Footer />
     </>
   )
 }

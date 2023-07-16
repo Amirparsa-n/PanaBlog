@@ -58,19 +58,19 @@ const Authors = () => {
                       slidesPerView: 2,
                       spaceBetween: 15,
                     },
-                    '@0.75': {
+                    '@0.85': {
                       slidesPerView: 3,
-                      spaceBetween: 20,
+                      spaceBetween: 15,
                     },
-                    '@1.00': {
+                    '@1.30': {
                         slidesPerView: 4,
-                        spaceBetween: 35,
-                    },
-                    '@1.40': {
-                      slidesPerView: 5,
-                      spaceBetween: 50,
+                        spaceBetween: 25,
                     },
                     '@1.70': {
+                      slidesPerView: 5,
+                      spaceBetween: 30,
+                    },
+                    '@2.00': {
                       slidesPerView: 6,
                       spaceBetween: 50,
                     },

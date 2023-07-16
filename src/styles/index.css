@@ -233,3 +233,16 @@ a {
 .AuthorsAvatar {
     transition: all 0.3s ease-out;
 }
+
+.footerStoicalItems:hover {
+    filter: drop-shadow(0 0 20px #2066bb88);
+    transition: 0.2s;
+}
+
+.footerStoicalItems {
+    transition: 0.5s ease-out;
+}
+
+.copyrightTextFooter:hover .amirparsanaghibi {
+    color: #2065BB;
+}
