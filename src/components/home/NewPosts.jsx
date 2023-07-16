@@ -18,7 +18,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 
 // graphQl
 import { useQuery } from '@apollo/client';
-import { GET_ALL_POSTS } from '../../graphQl/queries';
+import { GET_News_POST } from '../../graphQl/queries';
 
 // Icons
 import morePostIcon from '../../assets/icons/morePost.svg';
@@ -29,7 +29,7 @@ import NewPostsSkeleton from '../SkeletonLoading/NewPostsSkeleton';
 
 const NewPosts = () => {
 
-    const {loading, data, error} = useQuery(GET_ALL_POSTS);
+    const {loading, data, error} = useQuery(GET_News_POST);
 
     if (loading) return (
         <div>
@@ -85,10 +85,12 @@ const NewPosts = () => {
             </Box>
 
             <Box component={'div'} mt={4}>
-                <button className='morePost'>
-                    <img src={morePostIcon} alt="morePostIcon" />
-                    <span>مشاهده مطالب بیشتر</span>
-                </button>
+                <Link to={'/blogs'}>
+                    <button className='morePost'>
+                        <img src={morePostIcon} alt="morePostIcon" />
+                        <span>مشاهده مطالب بیشتر</span>
+                    </button>
+                </Link>
             </Box>
 
         </div>

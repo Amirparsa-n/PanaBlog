@@ -29,9 +29,32 @@ const GET_HOT_POSTS = gql`
     }
 `;
 
-const GET_ALL_POSTS = gql`
+const GET_News_POST = gql`
 query Posts {
   posts(skip: 0, first: 10, orderBy: publishedAt_DESC) {
+    title
+    slug
+    id
+    content {
+      html
+    }
+    coverPhoto {
+      url
+    }
+    authorPost {
+      ... on Author {
+        id
+        name
+      }
+    }
+    category
+  }
+}
+`;
+
+const GET_ALL_POSTS = gql`
+query Posts {
+  posts(skip: 0, first: 100, orderBy: publishedAt_DESC) {
     title
     slug
     id
@@ -67,4 +90,4 @@ query MyQuery {
 `;
 
 
-export {GET_POSTS_BANNER, GET_HOT_POSTS, GET_ALL_POSTS, GET_ALL_AUTHOR}
+export {GET_POSTS_BANNER, GET_HOT_POSTS, GET_News_POST, GET_ALL_AUTHOR, GET_ALL_POSTS}
