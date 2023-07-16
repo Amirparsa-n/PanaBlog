@@ -23,18 +23,13 @@ import { GET_ALL_AUTHOR } from '../../graphQl/queries';
 
 // Component
 import AuthorsCart from '../shared/AuthorsCart';
+import AuthorsCartSkeleton from '../SkeletonLoading/AuthorsCartSkeleton';
 
 const Authors = () => {
 
     const {loading, data, error} = useQuery(GET_ALL_AUTHOR);
 
-    console.log(data);
-
-    if (loading) return (
-        <div>
-            
-        </div>
-    )
+    const numberOfAuthors = [1,2,3,4,5,6]
         
     if (error) return <h3>error</h3>
 
@@ -81,11 +76,22 @@ const Authors = () => {
                     },
                 }}
             >
-                {data.authors.map(author => (
+                {loading ? 
+                
+                numberOfAuthors.map(item => (
+                    <SwiperSlide key={item}>
+                        <AuthorsCartSkeleton />
+                    </SwiperSlide>
+                ))
+
+                : 
+                
+                data.authors.map(author => (
                     <SwiperSlide key={author.id}>
                         <AuthorsCart {...author} />
                     </SwiperSlide>
-                ))}
+                ))
+                }
 
             </Swiper>
 
