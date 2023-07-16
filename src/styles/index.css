@@ -218,6 +218,7 @@ a {
     padding: 12px 20px;
     cursor: pointer;
     margin: auto;
+    background-color: #fff;
 }
 
 .morePost:hover {

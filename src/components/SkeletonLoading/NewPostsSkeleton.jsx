@@ -1,7 +1,5 @@
 import React from 'react';
 
-import { Link } from 'react-router-dom';
-
 // mui
 import { Box, Button, Grid, Stack, Typography } from '@mui/material';
 
@@ -16,32 +14,15 @@ import 'swiper/css/navigation';
 // import required modules
 import { Pagination, Navigation } from 'swiper/modules';
 
-// graphQl
-import { useQuery } from '@apollo/client';
-import { GET_ALL_POSTS } from '../graphQl/queries';
-
 // Icons
-import morePostIcon from '../assets/icons/morePost.svg';
+import morePostIcon from '../../assets/icons/morePost.svg';
 
 // components
-import PostCart from './shared/PostCart';
-import NewPostsSkeleton from './SkeletonLoading/NewPostsSkeleton';
+import PostCartSkeleton from '../shared/PostCartSkeleton';
 
-const NewPosts = () => {
+const NewPostsSkeleton = () => {
 
-    const {loading, data, error} = useQuery(GET_ALL_POSTS);
-
-    console.log(data);
-
-        
-    if (loading) return (
-        <div>
-            <NewPostsSkeleton />
-        </div>
-    )
-        
-    if (error) return <h3>error</h3>
-
+    const postNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
     return (
         <div style={{marginTop: '120px'}}>
@@ -78,9 +59,9 @@ const NewPosts = () => {
                     },
                 }}
                 >
-                    {data.posts.map(post => (
-                        <SwiperSlide key={post.id}>
-                            <PostCart {...post} />
+                    {postNumber.map(post => (
+                        <SwiperSlide key={post}>
+                            <PostCartSkeleton />
                         </SwiperSlide>
                     ))}
 
@@ -93,9 +74,9 @@ const NewPosts = () => {
                     <span>مشاهده مطالب بیشتر</span>
                 </button>
             </Box>
-
+            
         </div>
     );
 };
 
-export default NewPosts;
+export default NewPostsSkeleton;
