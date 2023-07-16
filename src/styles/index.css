@@ -224,3 +224,12 @@ a {
 .morePost:hover {
     background-color: #2066bb10;
 }
+
+.AuthorsCart:hover .AuthorsAvatar {
+    transform: scale(1.15);
+    transition: all 0.2s ;
+}
+
+.AuthorsAvatar {
+    transition: all 0.3s ease-out;
+}

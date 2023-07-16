@@ -52,5 +52,19 @@ query Posts {
 }
 `;
 
+const GET_ALL_AUTHOR = gql`
+query MyQuery {
+  authors {
+    name
+    id
+    slug
+    avatar {
+      url
+    }
+    field
+  }
+}
+`;
 
-export {GET_POSTS_BANNER, GET_HOT_POSTS, GET_ALL_POSTS}
+
+export {GET_POSTS_BANNER, GET_HOT_POSTS, GET_ALL_POSTS, GET_ALL_AUTHOR}

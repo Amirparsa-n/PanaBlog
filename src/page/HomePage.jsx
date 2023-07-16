@@ -7,6 +7,7 @@ import { Container } from '@mui/material';
 import HeaderBanner from '../components/home/HeaderBanner';
 import HotPosts from '../components/home/HotPosts';
 import NewPosts from '../components/home/NewPosts';
+import Authors from '../components/home/Authors';
 
 const HomePage = () => {
 
@@ -18,7 +19,7 @@ const HomePage = () => {
 
             <NewPosts />
 
-            
+            <Authors />
         </Container>
     );
 };

@@ -31,9 +31,6 @@ const NewPosts = () => {
 
     const {loading, data, error} = useQuery(GET_ALL_POSTS);
 
-    console.log(data);
-
-        
     if (loading) return (
         <div>
             <NewPostsSkeleton />
