@@ -18,14 +18,14 @@ import { Pagination, Navigation } from 'swiper/modules';
 
 // graphQl
 import { useQuery } from '@apollo/client';
-import { GET_ALL_POSTS } from '../graphQl/queries';
+import { GET_ALL_POSTS } from '../../graphQl/queries';
 
 // Icons
-import morePostIcon from '../assets/icons/morePost.svg';
+import morePostIcon from '../../assets/icons/morePost.svg';
 
 // components
-import PostCart from './shared/PostCart';
-import NewPostsSkeleton from './SkeletonLoading/NewPostsSkeleton';
+import PostCart from '../shared/PostCart';
+import NewPostsSkeleton from '../SkeletonLoading/NewPostsSkeleton';
 
 const NewPosts = () => {
 

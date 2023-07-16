@@ -15,10 +15,10 @@ import 'swiper/css/navigation';
 
 // graphQl
 import { useQuery } from '@apollo/client';
-import { GET_POSTS_BANNER } from '../graphQl/queries';
+import { GET_POSTS_BANNER } from '../../graphQl/queries';
 
 // components
-import HeaderBannerSkeleton from './SkeletonLoading/HeaderBannerSkeleton';
+import HeaderBannerSkeleton from '../SkeletonLoading/HeaderBannerSkeleton';
 
 const HeaderBanner = () => {
 

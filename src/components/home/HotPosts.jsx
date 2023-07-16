@@ -1,21 +1,21 @@
 import React from 'react';
 
+import { Link } from 'react-router-dom';
 import moment from 'moment-jalaali';
 
 // mui
 import { Box, Button, Container, Grid, Stack, Typography } from '@mui/material';
 
 // Component
-import HotPostsSkeleton from './SkeletonLoading/HotPostsSkeleton';
+import HotPostsSkeleton from '../SkeletonLoading/HotPostsSkeleton';
 
 // graphQl
 import { useQuery } from '@apollo/client';
-import { GET_HOT_POSTS } from '../graphQl/queries';
+import { GET_HOT_POSTS } from '../../graphQl/queries';
 
 // icons
-import dateIcon from '../assets/icons/date.svg';
-import { Link } from 'react-router-dom';
-import nextIcon from '../assets/icons/next.svg';
+import dateIcon from '../../assets/icons/date.svg';
+import nextIcon from '../../assets/icons/next.svg';
 
 const HotPosts = ({ posts }) => {
 

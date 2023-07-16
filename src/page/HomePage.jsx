@@ -4,9 +4,9 @@ import React from 'react';
 import { Container } from '@mui/material';
 
 // component
-import HeaderBanner from '../components/HeaderBanner';
-import HotPosts from '../components/HotPosts';
-import NewPosts from '../components/NewPosts';
+import HeaderBanner from '../components/home/HeaderBanner';
+import HotPosts from '../components/home/HotPosts';
+import NewPosts from '../components/home/NewPosts';
 
 const HomePage = () => {
 
@@ -17,6 +17,8 @@ const HomePage = () => {
             <HotPosts />
 
             <NewPosts />
+
+            
         </Container>
     );
 };
