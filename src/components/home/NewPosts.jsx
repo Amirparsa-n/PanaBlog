@@ -25,20 +25,15 @@ import morePostIcon from '../../assets/icons/morePost.svg';
 
 // components
 import PostCart from '../shared/PostCart';
-import NewPostsSkeleton from '../SkeletonLoading/NewPostsSkeleton';
+import PostCartSkeleton from '../shared/PostCartSkeleton';
 
 const NewPosts = () => {
 
     const {loading, data, error} = useQuery(GET_News_POST);
 
-    if (loading) return (
-        <div>
-            <NewPostsSkeleton />
-        </div>
-    )
+    const postNumber = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
         
     if (error) return <h3>error</h3>
-
 
     return (
         <div style={{marginTop: '120px'}}>
@@ -75,11 +70,21 @@ const NewPosts = () => {
                     },
                 }}
                 >
-                    {data.posts.map(post => (
+                    {loading ? 
+                    
+                    postNumber.map(post => (
+                        <SwiperSlide key={post}>
+                            <PostCartSkeleton />
+                        </SwiperSlide>
+                    ))
+                    :
+                    data.posts.map(post => (
                         <SwiperSlide key={post.id}>
                             <PostCart {...post} />
                         </SwiperSlide>
-                    ))}
+                    ))
+                    }
+
 
                 </Swiper>
             </Box>

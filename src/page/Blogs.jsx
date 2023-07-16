@@ -9,19 +9,26 @@ import { GET_ALL_POSTS } from '../graphQl/queries';
 
 // components
 import PostCart from '../components/shared/PostCart';
+import PostCartSkeleton from '../components/shared/PostCartSkeleton';
 
 const Blogs = () => {
+
   const [currentPage, setCurrentPage] = useState(1);
+
   const { loading, data, error } = useQuery(GET_ALL_POSTS);
 
-  if (loading) return <div style={{ minHeight: '100vh' }}></div>;
+  const numberOfPosts = [1,2,3,4,5,6,7,8,9,10,11,12]
+//   if (loading) return <div style={{ minHeight: '100vh' }}></div>;
 
-  if (error) return <h3>error</h3>;
+    if (error) return <h3>error</h3>;
+    
+    let postsPerPage = 12;
 
-  const postsPerPage = 12;
-  const indexOfLastExercise = currentPage * postsPerPage;
-  const indexOfFirstExercise = indexOfLastExercise - postsPerPage;
-  const currentPosts = data.posts.slice(indexOfFirstExercise, indexOfLastExercise);
+    if (!loading) {
+        let indexOfLastExercise = currentPage * postsPerPage;
+        let indexOfFirstExercise = indexOfLastExercise - postsPerPage;
+        var currentPosts = data.posts.slice(indexOfFirstExercise, indexOfLastExercise);
+    }
 
   const paginate = (e, value) => {
     setCurrentPage(value);
@@ -44,13 +51,21 @@ const Blogs = () => {
           gap="30px"
           marginTop={{ xs: 4, sm: 5, md: 6 }}
         >
-          {currentPosts.map((post) => (
-            <PostCart {...post} key={post.id} />
-          ))}
+
+            {loading ? 
+            numberOfPosts.map((post) => (
+                <PostCartSkeleton key={post} />
+            ))
+            :
+            
+            currentPosts.map((post) => (
+                <PostCart {...post} key={post.id} />
+            ))
+            }
         </Box>
 
         <Box component="div" display="flex" justifyContent="center" mt={8}>
-          {data.posts.length > 12 && (
+          {!loading && data && (
             <Pagination
               count={Math.ceil(data.posts.length / postsPerPage)}
               variant="outlined"
