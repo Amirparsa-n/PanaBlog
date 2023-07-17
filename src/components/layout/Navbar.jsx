@@ -21,14 +21,16 @@ import { Link } from 'react-router-dom';
 import logo from '../../assets/images/logo.png';
 import menu from '../../assets/images/menu.svg'
 
+import { HashLink, NavHashLink } from 'react-router-hash-link';
+
 const drawerWidth = 240;
 
 const navItems = [
-    {id: 1, name:"home" ,title: 'خانه'},
-    {id: 2, name:"blog" ,title: 'مقالات'},
-    {id: 3, name:"HotNews" ,title: 'داغ ترین ها'},
-    {id: 4, name:"NewNews" ,title: 'تازه ترین ها'},
-    {id: 5, name:"Author" ,title: 'نویسنده ها'}
+    {id: 1, name:"home" ,title: 'خانه', path: '/'},
+    {id: 2, name:"blog" ,title: 'مقالات', path: '/blogs'},
+    {id: 3, name:"HotNews" ,title: 'داغ ترین ها', path: '/#hot'},
+    {id: 4, name:"NewNews" ,title: 'تازه ترین ها', path: '/#newposts'},
+    {id: 5, name:"Author" ,title: 'نویسنده ها', path: '/#authors'}
 ];
 
 function Navbar(props) {
@@ -44,8 +46,10 @@ function Navbar(props) {
       <List>
         {navItems.map((item) => (
           <ListItem key={item.id} >
-            <ListItemButton sx={{ textAlign: 'center' }}>
-              <ListItemText primary={item.title} />
+            <ListItemButton sx={{ textAlign: 'center', display: 'flex', justifyContent: 'center',  }}>
+              <HashLink scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'end' })} to={item.path}>
+                <ListItemText primary={item.title} />
+              </HashLink>
             </ListItemButton>
           </ListItem>
         ))}
@@ -84,9 +88,11 @@ function Navbar(props) {
                     <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap:{ md: '48px', sm:'18px' }, margin: 'auto' }}>
                         {navItems.map((item) => (
                         <Box key={item.id} sx={{ color: '#565656', cursor: 'pointer', ":hover":{color: '#2065BB'} }}>
+                          <HashLink scroll={(el) => el.scrollIntoView({ behavior: 'smooth', block: 'end' })} to={item.path}>
                             <Typography component={'div'}>
                                 {item.title}
                             </Typography>
+                          </HashLink>
                         </Box>
                         ))}
                     </Box>

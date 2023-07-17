@@ -34,7 +34,7 @@ const Authors = () => {
     if (error) return <h3>error</h3>
 
     return (
-        <div style={{marginTop: '120px'}}>
+        <div style={{marginTop: '120px'}} id='authors'>
             <Stack flexDirection={'row'} alignItems={'center'} gap={2}>
                 <Box component={'div'} width={'12px'} height={'28px'} bgcolor='#2065BB' borderRadius={'5px'}></Box>
                 <Typography component={'h2'} fontSize={{xs: '22px', md: '28px'}} fontWeight={700}>نویسنده ها</Typography>
