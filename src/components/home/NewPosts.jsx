@@ -24,8 +24,8 @@ import { GET_News_POST } from '../../graphQl/queries';
 import morePostIcon from '../../assets/icons/morePost.svg';
 
 // components
-import PostCart from '../shared/PostCart';
-import PostCartSkeleton from '../shared/PostCartSkeleton';
+import PostCard from '../shared/PostCard';
+import PostCardSkeleton from '../shared/PostCardSkeleton';
 
 const NewPosts = () => {
 
@@ -74,13 +74,13 @@ const NewPosts = () => {
                     
                     postNumber.map(post => (
                         <SwiperSlide key={post}>
-                            <PostCartSkeleton />
+                            <PostCardSkeleton />
                         </SwiperSlide>
                     ))
                     :
                     data.posts.map(post => (
                         <SwiperSlide key={post.id}>
-                            <PostCart {...post} />
+                            <PostCard {...post} />
                         </SwiperSlide>
                     ))
                     }

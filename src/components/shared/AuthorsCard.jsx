@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 // mui
 import { Avatar, Box, Button, Grid, Stack, Typography } from '@mui/material';
 
-const AuthorsCart = ({ avatar, field, name, slug }) => {
+const AuthorsCard = ({ avatar, field, name, slug }) => {
 
     return (
         <Link to={`/authors/${slug}`}>
@@ -28,4 +28,4 @@ const AuthorsCart = ({ avatar, field, name, slug }) => {
     );
 };
 
-export default AuthorsCart;
+export default AuthorsCard;

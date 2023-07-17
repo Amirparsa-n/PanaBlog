@@ -3,7 +3,7 @@ import React from 'react';
 // mui
 import { Box, Button, Stack, Typography, Skeleton } from '@mui/material';
 
-const PostCartSkeleton = () => {
+const PostCardSkeleton = () => {
     return (
         <Stack bgcolor={'white'}  borderRadius={'12px'} style={{boxShadow:'0 0 20px -2px rgba(0,0,0,0.2)', borderRadius: '12px'}}>
 
@@ -35,4 +35,4 @@ const PostCartSkeleton = () => {
     );
 };
 
-export default PostCartSkeleton;
+export default PostCardSkeleton;

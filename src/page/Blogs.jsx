@@ -8,8 +8,8 @@ import { useQuery } from '@apollo/client';
 import { GET_ALL_POSTS } from '../graphQl/queries';
 
 // components
-import PostCart from '../components/shared/PostCart';
-import PostCartSkeleton from '../components/shared/PostCartSkeleton';
+import PostCard from '../components/shared/PostCard';
+import PostCardSkeleton from '../components/shared/PostCardSkeleton';
 
 const Blogs = () => {
 
@@ -54,12 +54,12 @@ const Blogs = () => {
 
             {loading ? 
             numberOfPosts.map((post) => (
-                <PostCartSkeleton key={post} />
+                <PostCardSkeleton key={post} />
             ))
             :
             
             currentPosts.map((post) => (
-                <PostCart {...post} key={post.id} />
+                <PostCard {...post} key={post.id} />
             ))
             }
         </Box>

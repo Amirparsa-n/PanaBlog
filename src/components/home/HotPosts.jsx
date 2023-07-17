@@ -18,7 +18,7 @@ import dateIcon from '../../assets/icons/date.svg';
 import nextIcon from '../../assets/icons/next.svg';
 
 const HotPosts = ({ posts }) => {
-
+    moment.loadPersian({usePersianDigits: true})
 
     const {loading, data, error} = useQuery(GET_HOT_POSTS);
 

@@ -22,8 +22,8 @@ import { useQuery } from '@apollo/client';
 import { GET_ALL_AUTHOR } from '../../graphQl/queries';
 
 // Component
-import AuthorsCart from '../shared/AuthorsCart';
-import AuthorsCartSkeleton from '../SkeletonLoading/AuthorsCartSkeleton';
+import AuthorsCart from '../shared/AuthorsCard';
+import AuthorsCartSkeleton from '../SkeletonLoading/AuthorsCardSkeleton';
 
 const Authors = () => {
 

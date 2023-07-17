@@ -12,6 +12,7 @@ import Navbar from './components/layout/Navbar';
 import HomePage from './page/HomePage';
 import Footer from './components/layout/Footer';
 import Blogs from './page/Blogs';
+import PostDetails from './page/PostDetails';
 
 import ScrollToTop from './components/shared/ScrollToTop';
 
@@ -24,6 +25,7 @@ function App() {
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/blogs' element={<Blogs />} />
+        <Route path='/blogs/:slug' element={<PostDetails />}/>
       </Routes>
       <Footer />
     </>

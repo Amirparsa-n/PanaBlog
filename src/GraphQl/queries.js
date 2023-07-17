@@ -89,5 +89,48 @@ query MyQuery {
 }
 `;
 
+const GET_POST_DETAILS = gql`
+  query getPostDetails($slug: String!) {
+  post(where: {slug: $slug}) {
+    authorPost {
+      ... on Author {
+        avatar {
+          url
+        }
+        name
+        field
+        slug
+      }
+    }
+    category
+    content {
+      html
+    }
+    coverPhoto {
+      url
+    }
+    title
+    datePublished
+  }
+  
+  posts(skip: 0, first: 4, orderBy: publishedAt_DESC) {
+    title
+    slug
+    id
+    coverPhoto {
+      url
+    }
+  }
+}
+`;
 
-export {GET_POSTS_BANNER, GET_HOT_POSTS, GET_News_POST, GET_ALL_AUTHOR, GET_ALL_POSTS}
+
+export {
+GET_POSTS_BANNER,
+GET_HOT_POSTS,
+GET_News_POST,
+GET_ALL_AUTHOR,
+GET_ALL_POSTS,
+GET_POST_DETAILS,
+
+}

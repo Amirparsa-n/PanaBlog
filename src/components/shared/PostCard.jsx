@@ -8,7 +8,7 @@ import { Box, Button, Stack, Typography } from '@mui/material';
 // icons
 import userIcon from '../../assets/icons/user.svg';
 
-const PostCart = (post) => {
+const PostCard = (post) => {
 
     return (
         <Stack bgcolor={'white'}  borderRadius={'12px'} style={{boxShadow:'0 0 20px -2px rgba(0,0,0,0.2)', borderRadius: '12px'}}>
@@ -39,4 +39,4 @@ const PostCart = (post) => {
     );
 };
 
-export default PostCart;
+export default PostCard;

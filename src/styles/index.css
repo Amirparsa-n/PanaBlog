@@ -246,3 +246,9 @@ a {
 .copyrightTextFooter:hover .amirparsanaghibi {
     color: #2065BB;
 }
+
+.postContent img {
+    border-radius: 16px;
+    aspect-ratio: 16 / 10;
+    width: 90%;
+}
