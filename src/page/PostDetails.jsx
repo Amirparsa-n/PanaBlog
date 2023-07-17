@@ -13,6 +13,7 @@ import { GET_POST_DETAILS } from '../graphQl/queries';
 
 // component
 import PostsRecommendedCard from '../components/shared/postsRecommendedCard';
+import PostDetailsSkeleton from '../components/SkeletonLoading/PostDetailsSkeleton';
 
 const PostDetails = () => {
 
@@ -23,12 +24,8 @@ const PostDetails = () => {
         variables: {slug}
     });
 
-    console.log(data);
-
     if (loading) return (
-        <div>
-            loading ...
-        </div>
+        <PostDetailsSkeleton />
     )
         
     if (error) return <h3>error</h3>
@@ -44,7 +41,7 @@ const PostDetails = () => {
 
                         <Stack mt={7} display={"flex"} flexDirection={'row'} alignItems={'center'} columnGap={2}>
                             <Link to={`/authors/${data.post.authorPost.slug}`}>
-                                <Avatar src={data.post.authorPost.avatar.url} sx={{width: {sx: '', md: '40px'}, height: {sx: '' , md: '40px'}}}/>
+                                <Avatar src={data.post.authorPost.avatar.url} sx={{width: { md: '40px'}, height: { md: '40px'}}}/>
                             </Link>
                             <Typography component={'p'} fontSize={{xs: '14px', md: '16px'}}>نوشته شده توسط <Box component={'span'}><Link to={`/authors/${data.post.authorPost.slug}`}>{data.post.authorPost.name}</Link></Box> در {moment(data.post.datePublished, 'YYYY-MM-DD').format('jYYYY/jM/jD')}</Typography>
                         </Stack>
