@@ -56,7 +56,7 @@ const HotPosts = ({ posts }) => {
 
                         <Stack flexDirection={{xs: 'row-reverse' ,sm:'row'}} justifyContent={'space-between'} alignItems={{xs: 'center', sm: 'normal'}} columnGap={2}>
                             <Stack component={'div'} width={{xs: '100%', sm: '56%'}} flexDirection={'column'} justifyContent={'space-between'} >
-                                <Link to={randomPosts[0].slug} >
+                                <Link to={`/blogs/${randomPosts[0].slug}`} >
                                     <Typography component={'h3'} fontSize={{xs: '14px', sm: '16px' ,md: '18px', lg: '20px'}} fontWeight={600}>{randomPosts[0].title}</Typography>
                                 </Link>
                                 <Box component={'div'} fontSize={{xs: '14px', md: '18px'}} display={{xs: 'none', sm: 'none', md: '-webkit-box'}} className='fadeParagraph3' style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{__html: randomPosts[0].content.html}}></Box>
@@ -68,14 +68,14 @@ const HotPosts = ({ posts }) => {
                                         <Typography fontSize={{xs: '14px', md: '16px'}}>{moment(randomPosts[0].datePublished, 'YYYY-MM-DD').format('jYYYY/jM/jD')}</Typography>
                                     </Stack>
                                     
-                                    <Link to={randomPosts[0].slug}>
+                                    <Link to={`/blogs/${randomPosts[0].slug}`}>
                                         <Button variant="text">ادامه مطلب</Button>
                                     </Link>
                                 </Stack>
                             </Stack>
 
                             <Box>
-                                <Link to={randomPosts[0].slug} >
+                                <Link to={`/blogs/${randomPosts[0].slug}`} >
                                     <Box component={'img'} sx={{aspectRatio: '3 / 2', borderRadius: '16px'}} src={randomPosts[0].coverPhoto.url} alt={randomPosts[0].title} width={{xs: '120px', sm: '240px', md: '347px', lg: '422px'}} />
                                 </Link>
                             </Box>
@@ -90,7 +90,7 @@ const HotPosts = ({ posts }) => {
                                     <Typography fontSize={'12px'}>{moment(randomPosts[0].datePublished, 'YYYY-MM-DD').format('jYYYY/jM/jD')}</Typography>
                                 </Stack>
                                 
-                                <Link to={randomPosts[0].slug}>
+                                <Link to={`/blogs/${randomPosts[0].slug}`}>
                                     <Stack display={'flex'} flexDirection={'row'} alignItems={'center'}>
                                         <Button variant="text" sx={{fontSize: '12px'}}>ادامه مطلب</Button>
                                         <img src={nextIcon} alt="nextIcon" width={"10px"} />
@@ -106,7 +106,7 @@ const HotPosts = ({ posts }) => {
                     <Box component={'div'} height={'100%'} px={{xs: '16px', sm: '28px'}} py={{xs: '12px', sm: '24px'}} borderRadius={'16px'} bgcolor={'white'} boxShadow={"0 0 15px 2px rgba(0,0,0,0.15)"}>
                         <Stack display={'flex'} flexDirection={{xs: 'row-reverse' ,sm:'row', md: 'column-reverse'}} justifyContent={{sx: 'normal', sm: 'space-between', md: 'normal'}} alignItems={{xs: 'center', sm: 'normal'}} rowGap={{xs: 0, sm: 1}} columnGap={{xs: 2, md:0}}>
                             <Stack component={'div'} width={{xs: '100%', sm: '56%', md: '100%'}} flexDirection={'column'} justifyContent={'space-between'} rowGap={{xs: 0, sm: 1.545 , md: 2}} >
-                                <Link to={randomPosts[1].slug} >
+                                <Link to={`/blogs/${randomPosts[1].slug}`} >
                                     <Typography component={'h3'} display={{xs:'none' , md: '-webkit-box'}} fontSize={{xs: '14px', sm: '16px' ,md: '18px', lg: '20px'}} fontWeight={600} className='fadeParagraphTitle'>{randomPosts[1].title}</Typography>
                                     <Typography component={'h3'} display={{xs:'block' , md: 'none'}}  fontSize={{xs: '14px', sm: '16px' ,md: '18px', lg: '20px'}} fontWeight={600}>{randomPosts[1].title}</Typography>
                                 </Link>
@@ -119,7 +119,7 @@ const HotPosts = ({ posts }) => {
                                         <Typography fontSize={{xs: '14px', md: '16px'}}>{moment(randomPosts[1].datePublished, 'YYYY-MM-DD').format('jYYYY/jM/jD')}</Typography>
                                     </Stack>
                                     
-                                    <Link to={randomPosts[1].slug}>
+                                    <Link to={`/blogs/${randomPosts[1].slug}`}>
                                         <Button variant="text">ادامه مطلب</Button>
                                     </Link>
                                 </Stack>
@@ -128,7 +128,7 @@ const HotPosts = ({ posts }) => {
                             
 
                             <Box>
-                                <Link to={randomPosts[1].slug} >
+                                <Link to={`/blogs/${randomPosts[1].slug}`} >
                                     <Box component={'img'} sx={{aspectRatio: {xs: '3 / 2', sm: '16/9'}, borderRadius: '16px'}} src={randomPosts[1].coverPhoto.url} alt={randomPosts[1].title} width={{xs: '120px', sm: '240px', md: '100%'}} />
                                 </Link>
                             </Box>
@@ -143,7 +143,7 @@ const HotPosts = ({ posts }) => {
                                     <Typography fontSize={'12px'}>{moment(randomPosts[1].datePublished, 'YYYY-MM-DD').format('jYYYY/jM/jD')}</Typography>
                                 </Stack>
                                 
-                                <Link to={randomPosts[1].slug}>
+                                <Link to={`/blogs/${randomPosts[1].slug}`}>
                                     <Stack display={'flex'} flexDirection={'row'} alignItems={'center'}>
                                         <Button variant="text" sx={{fontSize: '12px'}}>ادامه مطلب</Button>
                                         <img src={nextIcon} alt="nextIcon" width={"10px"} />

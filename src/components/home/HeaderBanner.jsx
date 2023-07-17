@@ -49,7 +49,7 @@ const HeaderBanner = () => {
         <>
         <Grid container display={{xs: 'none', sm: 'flex'}} spacing={3} marginTop={{xs: 4, md: 12}}>
             <Grid item xs={12} md={5}>
-                <Link to={randomPosts[0].slug}>
+                <Link to={`/blogs/${randomPosts[0].slug}`}>
                     <Box component={'div'} height={'600px'} sx={{background: `linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.9) 100%) ,url(${randomPosts[0].coverPhoto.url}) no-repeat top`, backgroundSize: 'cover', borderRadius: '20px', position: 'relative'}}>
                         <Box >
                             <Typography px={2} component={'h3'} variant='h5' lineHeight={2} color={'white'} fontWeight={700} textAlign={'center'} position={'absolute'} bottom={'80px'}>
@@ -61,7 +61,7 @@ const HeaderBanner = () => {
             </Grid>
 
             <Grid item xs={6} md={3} >
-                <Link to={randomPosts[1].slug}>
+                <Link to={`/blogs/${randomPosts[1].slug}`}>
                     <Box component={'div'} height={'600px'} sx={{background: `linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.9) 100%) ,url(${randomPosts[1].coverPhoto.url}) no-repeat top`, backgroundSize: 'cover', borderRadius: '20px', position: 'relative'}}>
                         <Typography px={2} component={'h3'} variant='h5' lineHeight={2} color={'white'} fontWeight={700} textAlign={'center'} position={'absolute'} bottom={'80px'}>
                             {randomPosts[1].title}
@@ -71,7 +71,7 @@ const HeaderBanner = () => {
             </Grid>
 
             <Grid item xs={6} md={4} >
-                <Link to={randomPosts[2].slug}>
+                <Link to={`/blogs/${randomPosts[2].slug}`}>
                     <Box component={'div'} height={'600px'} sx={{background: `linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.9) 100%) ,url(${randomPosts[2].coverPhoto.url}) no-repeat top`, backgroundSize: 'cover', borderRadius: '20px', position: 'relative'}}>
                         <Typography px={2} component={'h3'} variant='h5' lineHeight={2} color={'white'} fontWeight={700} textAlign={'center'} position={'absolute'} bottom={'80px'}>
                                 {randomPosts[2].title}
@@ -96,7 +96,7 @@ const HeaderBanner = () => {
               className="mySwiper"
             >
                 <SwiperSlide >
-                    <Link to={randomPosts[0].slug}>
+                    <Link to={`/blogs/${randomPosts[0].slug}`}>
                         <Box component={'div'} height={'600px'} sx={{background: `linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.9) 100%) ,url(${randomPosts[0].coverPhoto.url}) no-repeat top`, backgroundSize: 'cover', borderRadius: '20px', position: 'relative'}}>
                             <div >
                                 <Typography px={2} component={'h3'} variant='h5' lineHeight={2} color={'white'} fontWeight={700} textAlign={'center'} position={'absolute'} bottom={'80px'}>
@@ -108,7 +108,7 @@ const HeaderBanner = () => {
                 </SwiperSlide>
                 
                 <SwiperSlide>
-                    <Link to={randomPosts[1].slug}>
+                    <Link to={`/blogs/${randomPosts[1].slug}`}>
                         <Box component={'div'} height={'600px'} sx={{background: `linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.9) 100%) ,url(${randomPosts[1].coverPhoto.url}) no-repeat top`, backgroundSize: 'cover', borderRadius: '20px', position: 'relative'}}>
                             <Typography px={2} component={'h3'} variant='h5' lineHeight={2} color={'white'} fontWeight={700} textAlign={'center'} position={'absolute'} bottom={'80px'}>
                                 {randomPosts[1].title}
@@ -118,7 +118,7 @@ const HeaderBanner = () => {
                 </SwiperSlide>
 
                 <SwiperSlide>
-                    <Link to={randomPosts[2].slug}>
+                    <Link to={`/blogs/${randomPosts[2].slug}`}>
                         <Box component={'div'} height={'600px'} sx={{background: `linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(0,0,0,0.9) 100%) ,url(${randomPosts[2].coverPhoto.url}) no-repeat top`, backgroundSize: 'cover', borderRadius: '20px', position: 'relative'}}>
                             <Typography px={2} component={'h3'} variant='h5' lineHeight={2} color={'white'} fontWeight={700} textAlign={'center'} position={'absolute'} bottom={'80px'}>
                                     {randomPosts[2].title}

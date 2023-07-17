@@ -8,7 +8,7 @@ import { Avatar, Box, Button, Grid, Stack, Typography } from '@mui/material';
 const AuthorsCart = ({ avatar, field, name, slug }) => {
 
     return (
-        <Link to={slug}>
+        <Link to={`/authors/${slug}`}>
             <Box component={'div'} className='AuthorsCart' bgcolor={'white'} borderRadius={'16px'} boxShadow={'0 0 10px 0px rgba(0,0,0,0.1)'}>
                 <Stack display={'flex'} flexDirection={'column'} alignItems={'center'} p={3}>
                     <Avatar
