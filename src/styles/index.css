@@ -252,3 +252,8 @@ a {
     aspect-ratio: 16 / 10;
     width: 90%;
 }
+
+#comment .MuiFormHelperText-root {
+    font-size: 14px;
+    color: #D62F2F;
+}

@@ -14,6 +14,7 @@ import { GET_POST_DETAILS } from '../graphQl/queries';
 // component
 import PostsRecommendedCard from '../components/shared/postsRecommendedCard';
 import PostDetailsSkeleton from '../components/SkeletonLoading/PostDetailsSkeleton';
+import CommentForm from '../components/comments/CommentForm';
 
 const PostDetails = () => {
 
@@ -54,6 +55,10 @@ const PostDetails = () => {
 
                     <Box gridColumn={{xs: 'span 12', md: 'span 8'}}>
                         <Box component={'div'} className='postContent' fontSize={'18px'} lineHeight={2.8} dangerouslySetInnerHTML={{__html: data.post.content.html}}></Box>
+                    
+                        <Box component={'div'}>
+                            <CommentForm />
+                        </Box>
                     </Box>
 
                     <Box gridColumn={{xs: 'span 12', md: 'span 4'}}>
