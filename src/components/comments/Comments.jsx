@@ -14,7 +14,7 @@ const Comments = ({comments}) => {
         <Box component={'div'} boxShadow={'0 0 15px 0px rgba(0,0,0,0.1)'} mt={8} pb={comments.length && 4} pt={comments.length && 2} px={4} borderRadius={'16px'}>
             {!!comments.length ? 
             comments.map((comment) => (
-                <Box component={'div'} mt={3} borderBottom={'1px solid #acacac77'} borderTop={'1px solid #acacac77'} borderLeft={'16px solid #2065BB'} borderRadius={"16px 0 0 16px"} py={2} >
+                <Box key={comment.id} component={'div'} mt={3} borderBottom={'1px solid #acacac77'} borderTop={'1px solid #acacac77'} borderLeft={'16px solid #2065BB'} borderRadius={"16px 0 0 16px"} py={2} >
                     <Stack display={'flex'} flexDirection={'row'} alignItems={'center'} gap={1}>
                         <Avatar sx={{width: '45px', height: '45px'}}>{comment.name[0]}</Avatar>
                         <Typography component="p" fontWeight={500} fontSize={{xs: '16px', md: '18px'}}>{comment.name}</Typography>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { useParams } from 'react-router-dom';
 import moment from 'moment-jalaali';
@@ -18,6 +18,22 @@ import CommentForm from '../components/comments/CommentForm';
 import Comments from '../components/comments/Comments';
 
 const PostDetails = () => {
+
+    const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        const handleWindowResize = () => {
+          setWindowWidth(window.innerWidth);
+        };
+    
+        window.addEventListener('resize', handleWindowResize);
+    
+        return () => {
+          window.removeEventListener('resize', handleWindowResize);
+        };
+    });
+
+    console.log(windowWidth);
 
     const {slug} = useParams();
     moment.loadPersian({usePersianDigits: true})
@@ -59,10 +75,12 @@ const PostDetails = () => {
                     <Box gridColumn={{xs: 'span 12', md: 'span 8'}}>
                         <Box component={'div'} className='postContent' fontSize={'18px'} lineHeight={2.8} dangerouslySetInnerHTML={{__html: data.post.content.html}}></Box>
                     
-                        <Box component={'div'} display={{xs: 'none', md: 'block'}}>
-                            <CommentForm slug={slug} />
-                            <Comments comments={data.post.comments}/>
-                        </Box>
+                        {windowWidth >= 900 && 
+                            <Box component={'div'}>
+                                <CommentForm slug={slug} />
+                                <Comments comments={data.post.comments}/>
+                            </Box>
+                        }
                     </Box>
 
                     <Box gridColumn={{xs: 'span 12', md: 'span 4'}}>
@@ -84,10 +102,12 @@ const PostDetails = () => {
 
                 </Box>
 
-                <Box component={'div'} display={{xs: 'block', md: 'none'}}>
-                    <CommentForm slug={slug} />
-                    <Comments comments={data.post.comments}/>
-                </Box>
+                {windowWidth <= 900 && 
+                    <Box component={'div'}>
+                        <CommentForm slug={slug} />
+                        <Comments comments={data.post.comments}/>
+                    </Box>
+                }
 
             </Container>
         </div>
