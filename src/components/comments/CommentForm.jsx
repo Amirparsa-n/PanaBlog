@@ -6,6 +6,7 @@ import toast, { Toaster } from 'react-hot-toast';
 
 // graphQL
 import { CREATE_COMMENT } from '../../GraphQl/mutation';
+import { useMutation } from '@apollo/client';
 
 // mui
 import { Box, Button, Container, FormControl, Grid, OutlinedInput, Stack, TextField, Typography } from '@mui/material';
@@ -13,6 +14,8 @@ import rtlPlugin from 'stylis-plugin-rtl';
 import { prefixer } from 'stylis';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
+import { LoadingButton } from '@mui/lab';
+import SaveIcon from '@mui/icons-material/Save';
 
 // icons
 import sendIcon from '../../assets/icons/send.svg';
@@ -23,20 +26,24 @@ const cacheRtl = createCache({
     stylisPlugins: [prefixer, rtlPlugin],
 });
 
-const CommentForm = () => {
+const CommentForm = ({slug}) => {
 
-    const [data, setData] = useState({
+    const [dataComment, setData] = useState({
         userName: '',
         email: '',
         text: ''
     }) 
 
-    const [error, setError] = useState({})
+    const [createComment, {loading, data, error}] = useMutation(CREATE_COMMENT, {
+        variables: {userName: dataComment.userName, email: dataComment.email, text: dataComment.text, slug: slug}
+    });
+
+    const [errorComment, setError] = useState({})
     const [touched, setTouched] = useState({});
 
 
     const changeHandler = (e) => {
-        setData({...data, [e.target.name]: e.target.value})
+        setData({...dataComment, [e.target.name]: e.target.value})
     }
 
     const touchedHandler = (e) => {
@@ -44,21 +51,26 @@ const CommentForm = () => {
     }
 
     useEffect(() => {
-        setError(validateComment(data))
-        console.log(error);
-    }, [data])
+        setError(validateComment(dataComment))
+        console.log(errorComment);
+    }, [dataComment])
 
     const submitComment = (e) => {
         e.preventDefault();
 
-        if (Object.keys(error).length) {
+        if (Object.keys(errorComment).length) {
             setTouched({userName: true, email: true, text: true})
             toast.error('مقادیر فیلد را درست وارد کنید')
         } else {
-            
+            createComment()
+            if (!loading && !error) {
+                toast.success('کامنت شما با موفقت ارسال شد. منتظر تایید آن باشید.')
+            }
         }
     }
 
+    console.log(data);
+        
 
     return (
         <CacheProvider value={cacheRtl}>
@@ -73,16 +85,23 @@ const CommentForm = () => {
 
             <Box component={'div'} boxShadow={'0 0 15px 0px rgba(0,0,0,0.1)'} mt={4} p={4} borderRadius={'16px'}>
                 <Stack display={'flex'} flexDirection={'row'} justifyContent={'space-between'} gap={3}>
-                    <TextField variant="outlined" name='userName' helperText={error.userName && touched.userName && error.userName} error={error.userName && touched.userName} value={data.userName} onChange={changeHandler} onBlur={touchedHandler} label="نام کاربری" required sx={{width: '100%'}} />
-                    <TextField variant="outlined" name='email' helperText={error.email && touched.email && error.email} error={error.email && touched.email} value={data.email} onChange={changeHandler} onBlur={touchedHandler} label="ایمیل" required sx={{width: '100%'}} />
+                    <TextField variant="outlined" name='userName' helperText={errorComment.userName && touched.userName && errorComment.userName} error={errorComment.userName && touched.userName} value={dataComment.userName} onChange={changeHandler} onBlur={touchedHandler} label="نام کاربری" required sx={{width: '100%'}} />
+                    <TextField variant="outlined" name='email' helperText={errorComment.email && touched.email && errorComment.email} error={errorComment.email && touched.email} value={dataComment.email} onChange={changeHandler} onBlur={touchedHandler} label="ایمیل" required sx={{width: '100%'}} />
                     
                 </Stack>
-                <TextField variant="outlined" name='text' helperText={error.text && touched.text && error.text} error={error.text && touched.text} value={data.text} onChange={changeHandler} onBlur={touchedHandler} label="نظر خود را بنویسید." required sx={{width: '100%', mt: 3}} multiline minRows={6} maxRows={8} />
+                <TextField variant="outlined" name='text' helperText={errorComment.text && touched.text && errorComment.text} error={errorComment.text && touched.text} value={dataComment.text} onChange={changeHandler} onBlur={touchedHandler} label="نظر خود را بنویسید." required sx={{width: '100%', mt: 3}} multiline minRows={6} maxRows={8} />
 
-                <Button variant="contained" onClick={submitComment} size='large' sx={{mt: 4, display: 'flex', alignItems: 'center', gap: '8px'}}>
+                <LoadingButton
+                loading={loading}
+                loadingPosition="center"
+                variant="contained"
+                onClick={submitComment} 
+                size='large' 
+                sx={{mt: 4, display: 'flex', alignItems: 'center', gap: '8px'}}
+                >
                     <span>ارسال</span>  
                     <Box component={'img'} src={sendIcon} alt='sendIcon'/>
-                </Button>
+                </LoadingButton>
             </Box>
         </div>
         </CacheProvider>

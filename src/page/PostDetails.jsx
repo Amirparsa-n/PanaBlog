@@ -56,26 +56,32 @@ const PostDetails = () => {
                     <Box gridColumn={{xs: 'span 12', md: 'span 8'}}>
                         <Box component={'div'} className='postContent' fontSize={'18px'} lineHeight={2.8} dangerouslySetInnerHTML={{__html: data.post.content.html}}></Box>
                     
-                        <Box component={'div'}>
-                            <CommentForm />
+                        <Box component={'div'} display={{xs: 'none', md: 'block'}}>
+                            <CommentForm slug={slug} />
                         </Box>
                     </Box>
 
                     <Box gridColumn={{xs: 'span 12', md: 'span 4'}}>
-                        <Stack flexDirection={'row'} alignItems={'center'} gap={2}>
-                            <Box component={'div'} width={'12px'} height={'28px'} bgcolor='#2065BB' borderRadius={'5px'}></Box>
-                            <Typography component={'h2'} fontSize={{xs: '20px', md: '24px'}} fontWeight={700}>تازه ترین ها</Typography>
-                        </Stack>
-
-                        <Box mt={4}>
-                            <Stack display={'flex'} flexDirection={'column'} rowGap={4}>
-                                {data.posts.map(post => (
-                                    <PostsRecommendedCard {...post} key={post.id} />
-                                ))}
+                        <div className='sticky'>
+                            <Stack flexDirection={'row'} alignItems={'center'} gap={2}>
+                                <Box component={'div'} width={'12px'} height={'28px'} bgcolor='#2065BB' borderRadius={'5px'}></Box>
+                                <Typography component={'h2'} fontSize={{xs: '20px', md: '24px'}} fontWeight={700}>تازه ترین ها</Typography>
                             </Stack>
-                        </Box>
+
+                            <Box mt={4}>
+                                <Stack display={'flex'} flexDirection={'column'} rowGap={4}>
+                                    {data.posts.map(post => (
+                                        <PostsRecommendedCard {...post} key={post.id} />
+                                    ))}
+                                </Stack>
+                            </Box>
+                        </div>
                     </Box>
 
+                </Box>
+
+                <Box component={'div'} display={{xs: 'block', md: 'none'}}>
+                    <CommentForm slug={slug} />
                 </Box>
 
             </Container>

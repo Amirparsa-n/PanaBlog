@@ -257,3 +257,9 @@ a {
     font-size: 14px;
     color: #D62F2F;
 }
+
+.sticky {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 100px;
+}
