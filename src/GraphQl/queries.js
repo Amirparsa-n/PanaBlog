@@ -111,6 +111,11 @@ const GET_POST_DETAILS = gql`
     }
     title
     datePublished
+    comments {
+      name
+      text
+      id
+    }
   }
   
   posts(skip: 0, first: 4, orderBy: publishedAt_DESC) {

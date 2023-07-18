@@ -66,11 +66,12 @@ const CommentForm = ({slug}) => {
             if (!loading && !error) {
                 toast.success('کامنت شما با موفقت ارسال شد. منتظر تایید آن باشید.')
             }
+            if (!!error) {
+                toast.error("خطایی رخ داده لطفا بعدا تلاش کنید.")
+            }
         }
     }
 
-    console.log(data);
-        
 
     return (
         <CacheProvider value={cacheRtl}>
@@ -84,7 +85,7 @@ const CommentForm = ({slug}) => {
             </Stack>
 
             <Box component={'div'} boxShadow={'0 0 15px 0px rgba(0,0,0,0.1)'} mt={4} p={4} borderRadius={'16px'}>
-                <Stack display={'flex'} flexDirection={'row'} justifyContent={'space-between'} gap={3}>
+                <Stack display={'flex'} flexDirection={{xs: 'column', sm: 'row'}} justifyContent={'space-between'} gap={3}>
                     <TextField variant="outlined" name='userName' helperText={errorComment.userName && touched.userName && errorComment.userName} error={errorComment.userName && touched.userName} value={dataComment.userName} onChange={changeHandler} onBlur={touchedHandler} label="نام کاربری" required sx={{width: '100%'}} />
                     <TextField variant="outlined" name='email' helperText={errorComment.email && touched.email && errorComment.email} error={errorComment.email && touched.email} value={dataComment.email} onChange={changeHandler} onBlur={touchedHandler} label="ایمیل" required sx={{width: '100%'}} />
                     

@@ -18,7 +18,7 @@ const client = new ApolloClient({
 });
 
 ReactDOM.createRoot(document.getElementById('root')).render(
-  // <React.StrictMode>
+  <React.StrictMode>
     <ApolloProvider client={client}>
       <ThemeProvider theme={theme}>
         <BrowserRouter>
@@ -26,5 +26,5 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </BrowserRouter>
       </ThemeProvider>
     </ApolloProvider>
-  // </React.StrictMode>,
+  </React.StrictMode>,
 )

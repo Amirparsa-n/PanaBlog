@@ -15,6 +15,7 @@ import { GET_POST_DETAILS } from '../graphQl/queries';
 import PostsRecommendedCard from '../components/shared/postsRecommendedCard';
 import PostDetailsSkeleton from '../components/SkeletonLoading/PostDetailsSkeleton';
 import CommentForm from '../components/comments/CommentForm';
+import Comments from '../components/comments/Comments';
 
 const PostDetails = () => {
 
@@ -24,6 +25,8 @@ const PostDetails = () => {
     const {loading, data, error} = useQuery(GET_POST_DETAILS, {
         variables: {slug}
     });
+
+    console.log(data);
 
     if (loading) return (
         <PostDetailsSkeleton />
@@ -58,6 +61,7 @@ const PostDetails = () => {
                     
                         <Box component={'div'} display={{xs: 'none', md: 'block'}}>
                             <CommentForm slug={slug} />
+                            <Comments comments={data.post.comments}/>
                         </Box>
                     </Box>
 
@@ -82,6 +86,7 @@ const PostDetails = () => {
 
                 <Box component={'div'} display={{xs: 'block', md: 'none'}}>
                     <CommentForm slug={slug} />
+                    <Comments comments={data.post.comments}/>
                 </Box>
 
             </Container>
