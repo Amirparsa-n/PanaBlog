@@ -25,7 +25,7 @@ import { Pagination, Navigation } from 'swiper/modules';
 // component
 import PostCardSkeleton from '../components/shared/PostCardSkeleton';
 import PostCard from '../components/shared/PostCard';
-
+import AuthorDetailsSkeleton from '../components/SkeletonLoading/AuthorDetailsSkeleton';
 
 const AuthorDetails = () => {
 
@@ -39,9 +39,7 @@ const AuthorDetails = () => {
 
         
     if (loading) return (
-        <div>
-            loading ...
-        </div>
+        <AuthorDetailsSkeleton />
     )
         
     if (error) return <h3>error</h3>
