@@ -1,5 +1,7 @@
 import React from 'react';
 
+import sanitizeHtml from 'sanitize-html-react';
+
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
@@ -35,8 +37,6 @@ const AuthorDetails = () => {
         variables: {slug}
     });
 
-    console.log(data);
-
         
     if (loading) return (
         <AuthorDetailsSkeleton />
@@ -62,7 +62,7 @@ const AuthorDetails = () => {
 
             <Container maxWidth={'xl'}>
                 <Box mt={6}>
-                    <Box component={'div'} fontSize={{xs: '14px', sm: '16px', md: '18px'}} lineHeight={2} dangerouslySetInnerHTML={{__html: data.author.description.html}}></Box>
+                    <Box component={'div'} fontSize={{xs: '14px', sm: '16px', md: '18px'}} lineHeight={2} dangerouslySetInnerHTML={{__html: sanitizeHtml(data.author.description.html)}}></Box>
                 </Box>
 
                 <Box mt={12}>

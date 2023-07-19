@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
+import sanitizeHtml from 'sanitize-html-react';
+
 import { useParams } from 'react-router-dom';
 import moment from 'moment-jalaali';
 import { Link } from 'react-router-dom';
@@ -33,7 +35,6 @@ const PostDetails = () => {
         };
     });
 
-    console.log(windowWidth);
 
     const {slug} = useParams();
     moment.loadPersian({usePersianDigits: true})
@@ -41,8 +42,6 @@ const PostDetails = () => {
     const {loading, data, error} = useQuery(GET_POST_DETAILS, {
         variables: {slug}
     });
-
-    console.log(data);
 
     if (loading) return (
         <PostDetailsSkeleton />
@@ -73,7 +72,7 @@ const PostDetails = () => {
                 <Box pt={12} display="grid" gridTemplateColumns={{xs: 'repeat(12, 1fr)', md: 'repeat(12, 1fr)'}} columnGap={{xs: 0, md: 4, lg: 10}} rowGap={{xs: 10, md: 0}}>
 
                     <Box gridColumn={{xs: 'span 12', md: 'span 8'}}>
-                        <Box component={'div'} className='postContent' fontSize={'18px'} lineHeight={2.8} dangerouslySetInnerHTML={{__html: data.post.content.html}}></Box>
+                        <Box component={'div'} className='postContent' fontSize={'18px'} lineHeight={2.8} dangerouslySetInnerHTML={{__html: sanitizeHtml(data.post.content.html)}}></Box>
                     
                         {windowWidth >= 900 && 
                             <Box component={'div'}>

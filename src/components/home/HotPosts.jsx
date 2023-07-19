@@ -1,5 +1,7 @@
 import React from 'react';
 
+import sanitizeHtml from 'sanitize-html-react';
+
 import { Link } from 'react-router-dom';
 import moment from 'moment-jalaali';
 
@@ -59,8 +61,8 @@ const HotPosts = ({ posts }) => {
                                 <Link to={`/blogs/${randomPosts[0].slug}`} >
                                     <Typography component={'h3'} fontSize={{xs: '14px', sm: '16px' ,md: '18px', lg: '20px'}} fontWeight={600}>{randomPosts[0].title}</Typography>
                                 </Link>
-                                <Box component={'div'} fontSize={{xs: '14px', md: '18px'}} display={{xs: 'none', sm: 'none', md: '-webkit-box'}} className='fadeParagraph3' style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{__html: randomPosts[0].content.html}}></Box>
-                                <Box component={'div'} fontSize={{xs: '14px', md: '18px'}} display={{xs: 'none', sm: '-webkit-box', md: 'none' }} className='fadeParagraph2' style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{__html: randomPosts[0].content.html}}></Box>
+                                <Box component={'div'} fontSize={{xs: '14px', md: '18px'}} display={{xs: 'none', sm: 'none', md: '-webkit-box'}} className='fadeParagraph3' style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{__html: sanitizeHtml(randomPosts[0].content.html)}}></Box>
+                                <Box component={'div'} fontSize={{xs: '14px', md: '18px'}} display={{xs: 'none', sm: '-webkit-box', md: 'none' }} className='fadeParagraph2' style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{__html: sanitizeHtml(randomPosts[0].content.html)}}></Box>
 
                                 <Stack display={{xs: 'none', sm: 'flex'}} flexDirection={'row'} justifyContent={'space-between'} mt={2}>
                                     <Stack flexDirection={'row'} alignItems={'center'} columnGap={1}>
@@ -82,7 +84,7 @@ const HotPosts = ({ posts }) => {
                         </Stack>
 
                         <Stack display={{xs: 'flex', sm: 'none'}} mt={{xs: '10px', sm:'0'}}>
-                            <Box component={'div'} fontSize={'12px'} className='fadeParagraph3' style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{__html: randomPosts[0].content.html}}></Box>
+                            <Box component={'div'} fontSize={'12px'} className='fadeParagraph3' style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{__html: sanitizeHtml(randomPosts[0].content.html)}}></Box>
 
                             <Stack flexDirection={'row'} justifyContent={'space-between'} mt={2}>
                                 <Stack flexDirection={'row'} alignItems={'center'} columnGap={1}>
@@ -111,7 +113,7 @@ const HotPosts = ({ posts }) => {
                                     <Typography component={'h3'} display={{xs:'block' , md: 'none'}}  fontSize={{xs: '14px', sm: '16px' ,md: '18px', lg: '20px'}} fontWeight={600}>{randomPosts[1].title}</Typography>
                                 </Link>
 
-                                <Box component={'div'} fontSize={{xs: '14px', md: '18px'}} display={{xs: 'none', sm: '-webkit-box', md: 'none' }} className='fadeParagraph2' style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{__html: randomPosts[0].content.html}}></Box>
+                                <Box component={'div'} fontSize={{xs: '14px', md: '18px'}} display={{xs: 'none', sm: '-webkit-box', md: 'none' }} className='fadeParagraph2' style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{__html: sanitizeHtml(randomPosts[0].content.html)}}></Box>
 
                                 <Stack display={{xs: 'none', sm: 'flex'}} flexDirection={'row'} justifyContent={'space-between'} flexWrap={'wrap'} mt={{xs: 0, sm: 2, md: 0}}>
                                     <Stack flexDirection={'row'} alignItems={'center'} columnGap={1}>
@@ -135,7 +137,7 @@ const HotPosts = ({ posts }) => {
                         </Stack>
 
                         <Stack display={{xs: 'flex', sm: 'none'}} mt={{xs: '10px', sm:'0'}}>
-                            <Box component={'div'} fontSize={'12px'} className='fadeParagraph3' style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{__html: randomPosts[1].content.html}}></Box>
+                            <Box component={'div'} fontSize={'12px'} className='fadeParagraph3' style={{textAlign: 'justify'}} dangerouslySetInnerHTML={{__html: sanitizeHtml(randomPosts[1].content.html)}}></Box>
 
                             <Stack flexDirection={'row'} justifyContent={'space-between'} mt={2}>
                                 <Stack flexDirection={'row'} alignItems={'center'} columnGap={1}>

@@ -52,7 +52,6 @@ const CommentForm = ({slug}) => {
 
     useEffect(() => {
         setError(validateComment(dataComment))
-        console.log(errorComment);
     }, [dataComment])
 
     const submitComment = (e) => {

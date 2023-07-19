@@ -8,8 +8,6 @@ import commentNotFoundIcon from '../../assets/images/Status update-pana.svg';
 
 const Comments = ({comments}) => {
 
-    console.log(!!comments.length);
-
     return (
         <Box component={'div'} boxShadow={'0 0 15px 0px rgba(0,0,0,0.1)'} mt={8} pb={comments.length && 4} pt={comments.length && 2} px={4} borderRadius={'16px'}>
             {!!comments.length ? 

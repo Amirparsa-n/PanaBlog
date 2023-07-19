@@ -1,5 +1,7 @@
 import React from 'react';
 
+import sanitizeHtml from 'sanitize-html-react';
+
 import { Link } from 'react-router-dom';
 
 import moment from 'moment-jalaali';
@@ -27,7 +29,7 @@ const PostCard = (post) => {
                     <Typography fontWeight={700} className='fadeParagraphTitle3'>{post.title}</Typography>
                 </Link>
 
-                <Box component={'div'} mt={1} className='fadeParagraph3' textAlign='justify' fontSize={'15px'} dangerouslySetInnerHTML={{__html: post.content.html}}></Box>
+                <Box component={'div'} mt={1} className='fadeParagraph3' textAlign='justify' fontSize={'15px'} dangerouslySetInnerHTML={{__html: sanitizeHtml(post.content.html)}}></Box>
 
                 <Stack mt={2} display={'flex'} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
 
