@@ -129,6 +129,34 @@ const GET_POST_DETAILS = gql`
 }
 `;
 
+const GET_AUTHORS_DETAILS = gql`
+  query getAuthorsDetails($slug: String!) {
+    author(where: {slug: $slug}) {
+      field
+      id
+      name
+      avatar {
+        url
+      }
+      description {
+        html
+      }
+      posts {
+        content {
+          html
+        }
+        coverPhoto {
+          url
+        }
+        datePublished
+        slug
+        title
+        id
+      }
+    }
+  }
+`;
+
 
 export {
 GET_POSTS_BANNER,
@@ -137,5 +165,6 @@ GET_News_POST,
 GET_ALL_AUTHOR,
 GET_ALL_POSTS,
 GET_POST_DETAILS,
+GET_AUTHORS_DETAILS,
 
 }

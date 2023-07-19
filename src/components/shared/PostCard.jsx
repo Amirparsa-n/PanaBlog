@@ -2,13 +2,18 @@ import React from 'react';
 
 import { Link } from 'react-router-dom';
 
+import moment from 'moment-jalaali';
+
 // mui
 import { Box, Button, Stack, Typography } from '@mui/material';
 
 // icons
 import userIcon from '../../assets/icons/user.svg';
+import dateIcon from '../../assets/icons/date.svg';
 
 const PostCard = (post) => {
+
+    moment.loadPersian({usePersianDigits: true})
 
     return (
         <Stack bgcolor={'white'}  borderRadius={'12px'} style={{boxShadow:'0 0 20px -2px rgba(0,0,0,0.2)', borderRadius: '12px'}}>
@@ -26,10 +31,17 @@ const PostCard = (post) => {
 
                 <Stack mt={2} display={'flex'} flexDirection={'row'} justifyContent={'space-between'} alignItems={'center'}>
 
-                    <Stack display={'flex'} columnGap={1} flexDirection={'row'} alignItems={'center'}>
-                        <Box component={'img'} src={userIcon} alt='userIcon' />
-                        <Typography component={'p'} fontSize={'13px'}>{post.authorPost.name}</Typography>
-                    </Stack>
+                    {post.authorPost ? 
+                        <Stack display={'flex'} columnGap={1} flexDirection={'row'} alignItems={'center'}>
+                            <Box component={'img'} src={userIcon} alt='userIcon' />
+                            <Typography component={'p'} fontSize={'13px'}>{post.authorPost.name}</Typography>
+                        </Stack>
+                    :
+                        <Stack display={'flex'} columnGap={1} flexDirection={'row'} alignItems={'center'}>
+                            <Box component={'img'} src={dateIcon} alt='dateIcon' width={'16px'} />
+                            <Typography component={'p'} fontSize={'13px'}>{moment(post.datePublished, 'YYYY-MM-DD').format('jYYYY/jM/jD')}</Typography>
+                        </Stack>
+                    }
                     <Link to={`/blogs/${post.slug}`}>
                         <Button>ادامه مطلب</Button>
                     </Link>

@@ -13,6 +13,7 @@ import HomePage from './page/HomePage';
 import Footer from './components/layout/Footer';
 import Blogs from './page/Blogs';
 import PostDetails from './page/PostDetails';
+import AuthorDetails from './page/AuthorDetails';
 
 import ScrollToTop from './components/shared/ScrollToTop';
 
@@ -26,6 +27,7 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/blogs' element={<Blogs />} />
         <Route path='/blogs/:slug' element={<PostDetails />}/>
+        <Route path='/authors/:slug' element={<AuthorDetails />} />
       </Routes>
       <Footer />
     </>
